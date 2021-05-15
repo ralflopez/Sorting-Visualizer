@@ -4,9 +4,12 @@ import { PlayFill, ArrowCounterclockwise } from 'react-bootstrap-icons'
 import logo from '../../assets/logo.svg'
 import { useSortStore } from '../../mobx/Context'
 import { SortStore } from '../../mobx/Store'
+import PlayControl from '../Controls/PlayControl'
+import RepeatControl from '../Controls/RepeatControl'
 import Container from '../General/Container'
 import Dropdown from '../General/Dropdown'
-import { Bar, Controls, Flex, Logo } from './Appbar.styled'
+import selection from '../../SortingMethods/Selection'
+import { Bar, Flex, Logo } from './Appbar.styled'
 
 const Appbar = () => {
     const store: SortStore = useSortStore()
@@ -29,12 +32,8 @@ const Appbar = () => {
                         <Dropdown.Option onClick={() => changeActive('Insertion')}>Insertion</Dropdown.Option>
                     </Dropdown>
                 </Flex>
-                <Controls>
-                    <ArrowCounterclockwise color="#272727" size={30} />
-                </Controls>
-                <Controls>
-                    <PlayFill color="#87ED76" size={50}/>
-                </Controls>
+                <RepeatControl />
+                <PlayControl />
             </Container>
         </Bar>
     )

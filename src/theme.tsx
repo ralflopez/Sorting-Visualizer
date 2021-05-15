@@ -22,6 +22,10 @@ const theme = {
             text: '#FFFEFE',
             100: '#2F2F2F'
         },
+        gray: {
+            color: '#535353',
+            text: '#FFFEFE',
+        },
         background: {
             color: '#F6F6F6',
             text: '#272727'

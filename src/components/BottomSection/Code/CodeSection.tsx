@@ -1,24 +1,15 @@
+import { observer } from 'mobx-react-lite'
 import React, { useState, useRef } from 'react'
+import { useSortStore } from '../../../mobx/Context'
+import { SortStore } from '../../../mobx/Store'
 import { DarkerContainer, Highlighted, TextArea } from './CodeSection.styled'
+import * as codes from '../../../SortingMethods/rawCodes'
 
 const CodeSection = () => {
-    const [code, setCode] = useState<string>(`function selectionSort(arr) {
-        let min;
-        for(let i = 0; i < arr.length - 1; i++) {
-            min = i;
-            for(let j = i + 1; j < arr.length; j++) {
-                if(arr[j] < arr[min]) {
-                    min = j
-                }
-            }
-            if(min !== i) {
-                ([arr[i], arr[min]] = [arr[min], arr[i]])
-            }
-        }
-      }`)
-    const [activeLine, setActiveLine] = useState<number[]>([-1, -1])
-    let tarea = useRef(null)
-
+    const store: SortStore = useSortStore()
+    //@ts-ignore
+    const code = codes[store.strategy]
+    
     return (
         <div>
             <DarkerContainer>
@@ -26,11 +17,17 @@ const CodeSection = () => {
                 <TextArea>
                     {
                         code.replace(/ /g, '\u00A0').split('\n').map((item: string, index: number) => {
-                            if(index >= activeLine[0] && index <= activeLine[1])
+                            if(index >= store.activeLines[0] && index <= store.activeLines[1])
                                 return (
-                                    <Highlighted>{item}</Highlighted>
+                                    <Highlighted key={index}>
+                                        {item}
+                                    </Highlighted>
                                 )
-                            return (<p>{item}</p>)
+                            return (
+                                <p key={index}>
+                                    {item}
+                                </p>
+                            )
                         })
                     }
                 </TextArea>
@@ -39,4 +36,4 @@ const CodeSection = () => {
     )
 }
 
-export default CodeSection
+export default observer(CodeSection)

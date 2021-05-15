@@ -12,10 +12,11 @@ export interface TDataBlock {
 export class SortStore {
     data: TDataBlock[] = []
     maxDataValue: number = 0
+    copy: TDataBlock[] = []
 
     language: string = 'Javascript'
     strategy: string = 'Selection'
-    speed: number = 0
+    speed: number = 200
 
     activeTask: string = ''
     activeLines: number[] = [-1, -1]
@@ -42,6 +43,10 @@ export class SortStore {
         this.data = this.data.filter((item: TDataBlock) => item.id !== id)
     }
 
+    swapDataBlock(index1: number, index2: number) {
+        [this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]]
+    }
+
     assignHeight(value: number) {
         if(value > this.maxDataValue) {
             this.maxDataValue = value
@@ -54,6 +59,15 @@ export class SortStore {
     
     evaluateDataBlocks() {
         this.data = this.data.map((item: TDataBlock) => ({...item, height: item.value * (100/this.maxDataValue)}))
+    }
+
+    revertDataBlocks() {
+        this.data = [...this.copy]
+        this.copy = []
+    }
+
+    copyDataBlocks() {
+        this.copy = [...this.data]
     }
 
     // Langage
@@ -71,6 +85,13 @@ export class SortStore {
             this.strategy = strategy
         }
     }
+    
+    // UI
+
+    // Select
+    selectDataBlock(index: number, color: string) {
+        this.data[index].color = color
+    }
 
     // Speed
     setSpeed(speed: number) {
@@ -83,7 +104,7 @@ export class SortStore {
     }
 
     // Active Code
-    setActiveCode(first: number, last: number) {
+    setActiveLines(first: number, last: number) {
         this.activeLines = [first, last]
     }
 

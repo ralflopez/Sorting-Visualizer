@@ -22,7 +22,7 @@ export const TextArea = styled.div`
         margin: 0;
         padding: 0.2rem 0;
     }
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-family: monospace;
     &::-webkit-scrollbar {
         width: 5px;
@@ -31,4 +31,5 @@ export const TextArea = styled.div`
 
 export const Highlighted = styled.p`
     background-color: ${({theme}: any) => theme.palette.primary.color};
+    transition: all 250ms ease-out;
 `
