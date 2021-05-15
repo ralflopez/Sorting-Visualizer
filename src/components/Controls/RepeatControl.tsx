@@ -9,6 +9,9 @@ const RepeatControl = () => {
 
     const handleReset = () => {
         store.setActiveLines(-1, -1)
+        store.data.forEach((_, index) => {
+            store.selectDataBlock(index, 'dark')
+        })
         store.revertDataBlocks()
     }
 

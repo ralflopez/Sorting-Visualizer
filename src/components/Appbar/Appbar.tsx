@@ -15,6 +15,7 @@ const Appbar = () => {
     const store: SortStore = useSortStore()
 
     const changeActive = (name: string) => {
+        store.setActiveLines(-1, -1)
         store.setStrategy(name)
     }
 

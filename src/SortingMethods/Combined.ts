@@ -1,11 +1,14 @@
 import selectionSort from './Selection'
+import bubbleSort from './Bubble'
 
 interface TSortingMethods {
-    Selection: any
+    Selection: any,
+    Bubble: any
 }
 
 const combined: TSortingMethods = {
-    Selection: selectionSort
+    Selection: selectionSort,
+    Bubble: bubbleSort
 }
 
 export default combined

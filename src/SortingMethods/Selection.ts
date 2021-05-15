@@ -1,12 +1,8 @@
 import React from 'react'
 import { SortStore, TDataBlock } from '../mobx/Store'
-
-const sleep = (delay: number) => {
-    return new Promise((resolve: any) => setTimeout(resolve, delay))
-}
+import { sleep } from './uiSync'
 
 async function selectionSort(store: SortStore) {
-    store.copyDataBlocks()
     let min;
     store.setActiveLines(1, 1)
     await sleep(store.speed)

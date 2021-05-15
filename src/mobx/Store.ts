@@ -17,7 +17,7 @@ export class SortStore {
     language: string = 'Javascript'
     strategy: string = 'Selection'
     speed: number = 200
-
+    
     activeTask: string = ''
     activeLines: number[] = [-1, -1]
 

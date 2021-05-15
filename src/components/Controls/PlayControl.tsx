@@ -11,6 +11,10 @@ const PlayControl = () => {
     const handleSort = () => {
         //@ts-ignore
         const sortFunction = sort[`${store.strategy}`]
+        store.data.forEach((_, index) => {
+            store.selectDataBlock(index, 'dark')
+        })
+        store.copyDataBlocks()
         sortFunction(store)
     }
 
