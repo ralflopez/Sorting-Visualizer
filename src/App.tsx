@@ -5,6 +5,7 @@ import MainSection from './components/MainSection/MainSection'
 import Appbar from './components/Appbar/Appbar'
 import theme from './theme'
 import './App.css'
+import StoreProvider from './mobx/Context'
 
 const Layout = styled.div`
   display: flex;
@@ -17,13 +18,15 @@ const Layout = styled.div`
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Appbar />
-      <Layout>
-        <MainSection />
-        <BottomControls />
-      </Layout>
-    </ThemeProvider>
+    <StoreProvider>
+      <ThemeProvider theme={theme}>
+        <Appbar />
+        <Layout>
+          <MainSection />
+          <BottomControls />
+        </Layout>
+      </ThemeProvider>
+    </StoreProvider>
   )
 }
 

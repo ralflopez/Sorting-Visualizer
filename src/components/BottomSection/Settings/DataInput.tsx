@@ -1,29 +1,36 @@
-import React from 'react'
-import styled from 'styled-components'
+import { observer } from 'mobx-react-lite'
+import React, { useState } from 'react'
+import { useSortStore } from '../../../mobx/Context'
+import { Button, Flex, Input } from './DataInput.styled'
 
-const Input = styled.input<{type?: string}>`
-    background-color: ${({theme}: any) => theme.palette.dark['100']};
-    color: ${({theme}: any) => theme.palette.dark.text};
-    border: 0;
-    border-radius: 0.6rem;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    outline: none;
-    padding: 0.5rem 0.6rem;
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    &[type=number] {
-        -moz-appearance: textfield;
-    }
-`
 
 const DataInput = () => {
+    const [value, setValue] = useState<string>('')
+    const store = useSortStore()
+
+    const handleEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value)
+    }
+
+    const handleAdd = (e: any) => {
+        const parsedValue = Number(value)
+        store.addData(parsedValue)
+        setValue('')
+    }
+
     return (
-        <Input type="number"/>
+        <Flex>
+            <Input 
+                value={value}
+                onChange={handleEdit}
+            />
+            <Button
+                onClick={handleAdd}
+            >
+                Add
+            </Button>
+        </Flex>
     )
 }
 
-export default DataInput
+export default observer(DataInput)

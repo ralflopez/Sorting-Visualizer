@@ -1,42 +1,27 @@
 import React from 'react'
 import DataBlock from './DataBlock'
 import { Box } from './VisualizerBox.styled'
+import { SortStore, TDataBlock } from '../../../mobx/Store'
+import { useSortStore } from '../../../mobx/Context'
+import { observer } from 'mobx-react-lite'
 
 const VisualizerBox = () => {
+    const store: SortStore = useSortStore()
+    
     return (
         <Box>
-            <DataBlock 
-                value={100}
-                color="dark"
-                height={100}
-            />
-            <DataBlock 
-                value={50}
-                color="dark"
-                height={50}
-            />
-            <DataBlock 
-                value={10}
-                color="dark"
-                height={10}
-            />
-            <DataBlock 
-                value={1}
-                color="dark"
-                height={1}
-            />
-            <DataBlock 
-                value={0}
-                color="dark"
-                height={0}
-            />
-            <DataBlock 
-                value={75}
-                color="dark"
-                height={75}
-            />
+            {
+                store.data.map((item: TDataBlock) => (
+                    <DataBlock 
+                        key={item.id}
+                        value={item.value}
+                        color={item.color}
+                        height={(item.height as number)}
+                    />
+                ))
+            }
         </Box>
     )
 }
 
-export default VisualizerBox
+export default observer(VisualizerBox)

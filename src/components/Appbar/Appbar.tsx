@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+import React, { useEffect, useState } from 'react'
 import { PlayFill, ArrowCounterclockwise } from 'react-bootstrap-icons'
 import logo from '../../assets/logo.svg'
+import { useSortStore } from '../../mobx/Context'
+import { SortStore } from '../../mobx/Store'
 import Container from '../General/Container'
 import Dropdown from '../General/Dropdown'
 import { Bar, Controls, Flex, Logo } from './Appbar.styled'
 
 const Appbar = () => {
-    const [showDropdown, setShowDropdown] = useState<boolean>(false)
-    const [active, setActive] = useState<string>('Selection')
-
-    const toggleDropdown = () => {
-        setShowDropdown((cur: boolean) => !cur)
-    }
+    const store: SortStore = useSortStore()
 
     const changeActive = (name: string) => {
-        setActive(name)
+        store.setStrategy(name)
     }
 
     return (
@@ -24,9 +22,7 @@ const Appbar = () => {
                 <Flex>
                     <p>Strategy:</p>
                     <Dropdown 
-                        isShown={showDropdown}
-                        setShown={setShowDropdown}
-                        title={active}
+                        title={store.strategy}
                     >
                         <Dropdown.Option onClick={() => changeActive('Bubble')}>Bubble</Dropdown.Option>
                         <Dropdown.Option onClick={() => changeActive('Selection')}>Selection</Dropdown.Option>
@@ -44,4 +40,4 @@ const Appbar = () => {
     )
 }
 
-export default Appbar
+export default observer(Appbar)

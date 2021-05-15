@@ -1,19 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { DropdownButton, DropdownItem, DropdownParent, DropdownSelection } from './Dropdown.styled'
 import { CaretDown } from 'react-bootstrap-icons'
 
 interface TDropdown {
     children: any,
-    isShown: boolean,
-    setShown: any,
     title: string,
     color?: string,
     selectionPosition?: string
 }
 
-const Dropdown = ({ children, isShown = false, setShown, title, color = "primary", selectionPosition = "bottom" }: TDropdown) => {
+const Dropdown = ({ children, title, color = "primary", selectionPosition = "bottom" }: TDropdown) => {
     const options: any = React.Children.map(children, (child: any) => child.type.name === 'Option' ? child : null)
     let selectionWindow: React.MutableRefObject<any> = useRef(null)
+
+    const [isShown, setShown] = useState<boolean>(false)
 
     useEffect(() => {
         const clickOutside = (e: any) => {
@@ -43,7 +43,7 @@ const Dropdown = ({ children, isShown = false, setShown, title, color = "primary
                 isShown
                 &&
                 (
-                    <DropdownSelection ref={selectionWindow} color={color} selectionPosition={selectionPosition}>
+                    <DropdownSelection ref={selectionWindow} color={color} selectionPosition={selectionPosition} onClick={toggleDropdown}>
                         {options}
                     </DropdownSelection>
                 )

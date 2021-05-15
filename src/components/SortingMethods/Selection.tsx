@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DataCard = () => {
+const Selection = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const DataCard = () => {
     )
 }
 
-export default DataCard
+export default Selection
