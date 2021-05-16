@@ -7,10 +7,10 @@ export const handleReset = (store: SortStore) => {
     } else {
         // reset
         store.setActiveLines(-1, -1)
+        store.revertDataBlocks()
         store.data.forEach((_, index) => {
             store.selectDataBlock(index, 'dark')
         })
-        store.revertDataBlocks()
     }
 }
 
@@ -19,7 +19,7 @@ export const handleAfterPlayingReset = (store: SortStore) => {
         // reset
         store.setActiveLines(-1, -1)
         store.revertDataBlocks()
-        store.data.forEach((we, index) => {
+        store.data.forEach((_, index) => {
             store.selectDataBlock(index, 'dark')
         })
         store.setSpeed(-(store.speed))

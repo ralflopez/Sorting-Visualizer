@@ -3,7 +3,7 @@ import { setBreakpoint } from './uiSync'
 import { nanoid } from 'nanoid'
 
 async function insertionSort(store: SortStore) {
-    for(let i = 1; i < 5; i++) {
+    for(let i = 1; i < store.data.length; i++) {
         await setBreakpoint(store, 1)
         store.selectDataBlock(i, 'primary')
         const currentVal = store.data[i];
