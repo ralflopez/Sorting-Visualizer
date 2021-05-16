@@ -11,11 +11,17 @@ export interface TDataBlock {
 
 export class SortStore {
     data: TDataBlock[] = []
+    //     {value: 100, color: 'dark', height: 100, id: 'i100'},
+    //     {value: 74, color: 'dark', height: 74, id: 'i74'},
+    //     {value: 50, color: 'dark', height: 50, id: 'i50'},
+    //     {value: 20, color: 'dark', height: 25, id: 'i25'},
+    //     {value: 10, color: 'dark', height: 10, id: 'i10'},
+    // ]
     maxDataValue: number = 0
     copy: TDataBlock[] = []
 
     language: string = 'Javascript'
-    strategy: string = 'Selection'
+    strategy: string = 'Insertion'
     speed: number = 300
     
     activeTask: string = ''
@@ -46,6 +52,10 @@ export class SortStore {
 
     swapDataBlock(index1: number, index2: number) {
         [this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]]
+    }
+    
+    assignDataBlock(index: number, dataBlock: TDataBlock) {
+        this.data[index] = dataBlock
     }
 
     assignHeight(value: number) {

@@ -18,10 +18,10 @@ export const handleAfterPlayingReset = (store: SortStore) => {
     if(!store.isExecuting) {
         // reset
         store.setActiveLines(-1, -1)
-        store.data.forEach((_, index) => {
+        store.revertDataBlocks()
+        store.data.forEach((we, index) => {
             store.selectDataBlock(index, 'dark')
         })
-        store.revertDataBlocks()
         store.setSpeed(-(store.speed))
     } else {
         store.setIsExecuting(false)

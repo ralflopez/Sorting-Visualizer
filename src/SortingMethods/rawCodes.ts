@@ -32,9 +32,12 @@ export const Bubble: string =
 export const Insertion: string = 
 `function insertionSort(arr) {
     for(let i = 1; i < arr.length; i++) {
-        for(let j = i - 1; j >= 0 && arr[j] > arr[i]; j--) {
-            [arr[j], arr[i]] = [arr[i], arr[j]];
-            i = j;
+        const currentVal = arr[i]
+        let j = i - 1
+        while(j >= 0 && arr[j] > currentVal) {
+            arr[j + 1] = arr[j]
+            j--
         }
+        arr[j+1] = currentVal
     }
 }`
