@@ -47,7 +47,9 @@ async function selectionSort(store: SortStore) {
         await sleep(store.speed)
         store.selectDataBlock(i, 'dark')
         store.selectDataBlock(min, 'dark')
+        store.selectDataBlock(i, 'secondary')
     }
+    store.selectDataBlock(store.data.length - 1, 'secondary')
     store.setActiveLines(13, 13)
     await sleep(store.speed)
     store.setActiveLines(-1, -1)
