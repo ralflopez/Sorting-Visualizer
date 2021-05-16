@@ -15,7 +15,7 @@ export const Selection: string =
 }`
 
 export const Bubble: string =
-`function bubbleSortColt(arr) {
+`function bubbleSort(arr) {
     let noSwaps = true;
     for(let i = arr.length; i > 0; i--) {
         noSwaps = true;
@@ -30,7 +30,7 @@ export const Bubble: string =
 }`
 
 export const Insertion: string = 
-`function insertion(arr) {
+`function insertionSort(arr) {
     for(let i = 1; i < arr.length; i++) {
         for(let j = i - 1; j >= 0 && arr[j] > arr[i]; j--) {
             [arr[j], arr[i]] = [arr[i], arr[j]];
