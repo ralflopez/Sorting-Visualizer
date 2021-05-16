@@ -21,4 +21,5 @@ export const Block: StyledComponent<"div", any, TBlock, never> = styled.div<TBlo
     border-top-left-radius: 0.7rem;
     border-top-right-radius: 0.7rem;
     box-sizing: content-box;
+    transition: all 100ms ease-in-out;
 `

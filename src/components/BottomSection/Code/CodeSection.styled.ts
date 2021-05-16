@@ -17,9 +17,11 @@ export const TextArea: StyledComponent<"div", any, {}, never> = styled.div`
     border: 0;
     resize: none;
     overflow: auto;
+    transition: all 100ms ease-in-out;
     & p {
         margin: 0;
         padding: 0.2rem 0;
+        transition: all 100ms ease-in-out;
     }
     font-size: 0.7rem;
     font-family: monospace;
@@ -30,5 +32,5 @@ export const TextArea: StyledComponent<"div", any, {}, never> = styled.div`
 
 export const Highlighted: StyledComponent<"p", any, {}, never> = styled.p`
     background-color: ${({theme}: any) => theme.palette.primary.color};
-    transition: all 250ms ease-out;
+    transition: all 100ms ease-in-out;
 `
