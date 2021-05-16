@@ -15,8 +15,8 @@ export class SortStore {
     copy: TDataBlock[] = []
 
     language: string = 'Javascript'
-    strategy: string = 'Insertion'
-    speed: number = 300
+    strategy: string = 'Bubble'
+    speed: number = 200
     
     activeTask: string = ''
     activeLines: number[] = [-1, -1]

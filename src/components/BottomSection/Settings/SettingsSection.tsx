@@ -1,24 +1,12 @@
 import { observer } from 'mobx-react-lite'
-import React, { useState } from 'react'
-import { useSortStore } from '../../../mobx/Context'
-import { SortStore } from '../../../mobx/Store'
-import Dropdown from '../../General/Dropdown'
+import React from 'react'
 import DataInput from './DataInput'
+import SpeedSlider from './SpeedSlider'
 
 const SettingsSection = () => {
-    const store: SortStore = useSortStore()
-
     return (
         <div>
-            <div>
-                <p>Language: </p>
-                <Dropdown 
-                    title={store.language}
-                    color="secondary"
-                >
-                    <Dropdown.Option onClick={() => store.setLanguage('Javascript')}>Javascript</Dropdown.Option>
-                </Dropdown>
-            </div>
+            <SpeedSlider />
             <div>
                 <p>Add Data: </p>
                 <DataInput />
