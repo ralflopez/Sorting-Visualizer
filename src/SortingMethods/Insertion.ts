@@ -23,6 +23,7 @@ async function insertionSort(store: SortStore) {
             await setBreakpoint(store, 5)
         }
         store.selectDataBlock(j+1, 'dark')
+        store.selectDataBlock(j, 'dark')
         await setBreakpoint(store, 6)
         store.assignDataBlock(j+1, {
             ...currentVal
