@@ -12,19 +12,23 @@ const DataInput = () => {
     }
 
     const handleAdd = (e: any) => {
+        if(e.preventDefault) e.preventDefault()
+
         const parsedValue = Number(value)
         store.addData(parsedValue)
         setValue('')
     }
 
     return (
-        <Flex>
+        <Flex onSubmit={handleAdd}>
             <Input 
+                type="number"
                 value={value}
                 onChange={handleEdit}
             />
             <Button
-                onClick={handleAdd}
+            type="submit"
+                // onClick={handleAdd}
             >
                 Add
             </Button>

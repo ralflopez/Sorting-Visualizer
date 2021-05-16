@@ -19,7 +19,7 @@ export const Input: StyledComponent<"input", any, {}, never> = styled.input<{typ
     }
 `
 
-export const Flex: StyledComponent<"div", any, {}, never> = styled.div`
+export const Flex: StyledComponent<"form", any, {}, never> = styled.form`
     display: flex;
 `
 
