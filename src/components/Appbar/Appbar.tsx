@@ -9,6 +9,7 @@ import Container from '../General/Container'
 import Dropdown from '../General/Dropdown'
 import { Bar, Flex, Logo } from './Appbar.styled'
 import { handleReset } from '../Controls/resetHandler'
+import { strategySupport } from '../../mobx/supported'
 
 const Appbar = () => {
     const store: SortStore = useSortStore()
@@ -31,9 +32,11 @@ const Appbar = () => {
                     <Dropdown 
                         title={store.strategy}
                     >
-                        <Dropdown.Option onClick={() => changeActive('Bubble')}>Bubble</Dropdown.Option>
-                        <Dropdown.Option onClick={() => changeActive('Selection')}>Selection</Dropdown.Option>
-                        <Dropdown.Option onClick={() => changeActive('Insertion')}>Insertion</Dropdown.Option>
+                        {
+                            strategySupport.map((strat: string) => (
+                                <Dropdown.Option onClick={() => changeActive(strat)}>{strat}</Dropdown.Option>
+                            ))
+                        }
                     </Dropdown>
                 </Flex>
                 <RepeatControl />
