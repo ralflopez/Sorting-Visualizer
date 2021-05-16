@@ -6,8 +6,6 @@ import { useSortStore } from '../../../mobx/Context'
 import { TDataBlock } from '../../../mobx/Store'
 import { observer } from 'mobx-react-lite'
 
-
-
 const DataSection = () => {
     const store = useSortStore()
 
@@ -24,11 +22,15 @@ const DataSection = () => {
                     store.data.map((data: TDataBlock) => (
                         <DataCard key={data.id}>
                             <p>{data.value}</p>
-                            <X 
-                                size={25}
-                                id={data.id}
-                                onClick={handleRemove}
-                            />
+                            {
+                                !store.isExecuting && (
+                                    <X 
+                                        size={25}
+                                        id={data.id}
+                                        onClick={handleRemove}
+                                    />
+                                )
+                            }
                         </DataCard>
                     ))
                 }

@@ -1,21 +1,26 @@
+import { observer } from 'mobx-react-lite'
 import React from 'react'
 import { PlayFill } from 'react-bootstrap-icons'
 import { useSortStore } from '../../mobx/Context'
 import { SortStore } from '../../mobx/Store'
 import sort from '../../SortingMethods/Combined'
 import { Controls } from './Controlls.styled'
+import { handleAfterPlayingReset } from './resetHandler'
 
 const PlayControl = () => {
     const store: SortStore = useSortStore()
 
-    const handleSort = () => {
+    const handleSort = async () => {
+        if(store.isExecuting) return
         //@ts-ignore
         const sortFunction = sort[`${store.strategy}`]
         store.data.forEach((_, index) => {
             store.selectDataBlock(index, 'dark')
         })
         store.copyDataBlocks()
-        sortFunction(store)
+        store.setIsExecuting(true)
+        await sortFunction(store)
+        handleAfterPlayingReset(store)
     }
 
     return (
@@ -27,4 +32,4 @@ const PlayControl = () => {
     )
 }
 
-export default PlayControl
+export default observer(PlayControl)

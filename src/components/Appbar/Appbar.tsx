@@ -10,20 +10,17 @@ import Container from '../General/Container'
 import Dropdown from '../General/Dropdown'
 import selection from '../../SortingMethods/Selection'
 import { Bar, Flex, Logo } from './Appbar.styled'
+import { handleReset } from '../Controls/resetHandler'
 
 const Appbar = () => {
     const store: SortStore = useSortStore()
 
-    const handleReset = () => {
-        store.setActiveLines(-1, -1)
-        store.data.forEach((_, index) => {
-            store.selectDataBlock(index, 'dark')
-        })
-        store.revertDataBlocks()
+    const handleResetAction = () => {
+        handleReset(store)
     }
 
     const changeActive = (name: string) => {
-        handleReset()
+        handleResetAction()
         store.setStrategy(name)
     }
 

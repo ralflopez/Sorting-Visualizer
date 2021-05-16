@@ -26,14 +26,14 @@ async function bubbleSort(store: SortStore) {
         await setBreakpoint(store, 8);
         if(noSwaps) break; 
         await setBreakpoint(store, 9);
-        await store.selectDataBlock(i - 1 , 'secondary')
+        store.selectDataBlock(i - 1 , 'secondary')
     } 
-    await setBreakpoint(store, 10);
-    await setBreakpoint(store, 11);
+    await setBreakpoint(store, 10)
+    await setBreakpoint(store, 11)
     store.data.forEach((_, index) => {
         store.selectDataBlock(index, 'secondary')
     })
-    store.setActiveLines(-1, -1);
+    store.setActiveLines(-1, -1)
 }
 
 export default bubbleSort

@@ -16,10 +16,11 @@ export class SortStore {
 
     language: string = 'Javascript'
     strategy: string = 'Selection'
-    speed: number = 1000
+    speed: number = 300
     
     activeTask: string = ''
     activeLines: number[] = [-1, -1]
+    isExecuting: boolean = false
 
     constructor() {
         makeAutoObservable(this)
@@ -86,6 +87,11 @@ export class SortStore {
         if(supported >= 0) {
             this.strategy = strategy
         }
+    }
+
+    // Execution
+    setIsExecuting(state: boolean) {
+        this.isExecuting = state
     }
     
     // UI
