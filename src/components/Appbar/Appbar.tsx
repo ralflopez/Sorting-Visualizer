@@ -14,8 +14,16 @@ import { Bar, Flex, Logo } from './Appbar.styled'
 const Appbar = () => {
     const store: SortStore = useSortStore()
 
-    const changeActive = (name: string) => {
+    const handleReset = () => {
         store.setActiveLines(-1, -1)
+        store.data.forEach((_, index) => {
+            store.selectDataBlock(index, 'dark')
+        })
+        store.revertDataBlocks()
+    }
+
+    const changeActive = (name: string) => {
+        handleReset()
         store.setStrategy(name)
     }
 

@@ -16,7 +16,7 @@ export class SortStore {
 
     language: string = 'Javascript'
     strategy: string = 'Selection'
-    speed: number = 200
+    speed: number = 1000
     
     activeTask: string = ''
     activeLines: number[] = [-1, -1]
@@ -62,6 +62,8 @@ export class SortStore {
     }
 
     revertDataBlocks() {
+        if(!this.copy.length) return
+
         this.data = [...this.copy]
         this.copy = []
     }
