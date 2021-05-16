@@ -10,12 +10,14 @@ interface TDropdown {
 }
 
 const Dropdown = ({ children, title, color = "primary", selectionPosition = "bottom" }: TDropdown) => {
-    const options: any = React.Children.map(children, (child: any) => child.type.name === 'Option' ? child : null)
+    const options: any = React.Children.map(children, (child: any) => child.type.displayName === 'Option' ? child : null)
+
     let selectionWindow: React.MutableRefObject<any> = useRef(null)
 
     const [isShown, setShown] = useState<boolean>(false)
 
     useEffect(() => {
+
         const clickOutside = (e: any) => {
             if(selectionWindow.current && !selectionWindow.current.contains(e.target)) {
                 setShown(false)
@@ -43,7 +45,12 @@ const Dropdown = ({ children, title, color = "primary", selectionPosition = "bot
                 isShown
                 &&
                 (
-                    <DropdownSelection ref={selectionWindow} color={color} selectionPosition={selectionPosition} onClick={toggleDropdown}>
+                    <DropdownSelection 
+                        ref={selectionWindow} 
+                        color={color} 
+                        selectionPosition={selectionPosition} 
+                        onClick={toggleDropdown}
+                    >
                         {options}
                     </DropdownSelection>
                 )
@@ -59,6 +66,7 @@ const Option = ({children, ...rest}: any) => {
         </DropdownItem>
     )
 }
+Option.displayName = 'Option'
 Dropdown.Option = Option
 
 export default Dropdown

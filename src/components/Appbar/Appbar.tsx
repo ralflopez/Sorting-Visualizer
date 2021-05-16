@@ -34,7 +34,12 @@ const Appbar = () => {
                     >
                         {
                             strategySupport.map((strat: string) => (
-                                <Dropdown.Option onClick={() => changeActive(strat)}>{strat}</Dropdown.Option>
+                                <Dropdown.Option 
+                                    onClick={() => changeActive(strat)} 
+                                    key={strat}
+                                >
+                                    {strat}
+                                </Dropdown.Option>
                             ))
                         }
                     </Dropdown>
