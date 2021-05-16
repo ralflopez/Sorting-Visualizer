@@ -27,9 +27,13 @@ const theme = {
             text: '#FFFEFE',
         },
         background: {
-            color: '#F6F6F6',
+            // color: '#F6F6F6',
+            color: '#414141',
             text: '#272727'
         },
+        boxShadow: {
+            prop: '0px 4px 3px rgba(0, 0, 0, 0.05);'
+        }
     },
     sizing: {
         width: {
@@ -40,7 +44,7 @@ const theme = {
         },
         rounded: {
             sm: '0.5rem'
-        }
+        },
     },
     transition: {
         basic: 'all 300ms ease-out'

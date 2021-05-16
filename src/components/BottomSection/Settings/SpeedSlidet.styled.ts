@@ -9,6 +9,7 @@ export const Slider: StyledComponent<"input", any, {}, never> = styled.input`
     outline: none;
     --webkit-transition: .2s;
     direction: rtl;
+    box-shadow: ${({theme}: any) => theme.palette.boxShadow.prop};
     &::-webkit-slider-thumb {
         --webkit-appearance: none;
         appearance: none;

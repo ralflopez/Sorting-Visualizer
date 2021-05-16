@@ -13,6 +13,7 @@ export const DarkerContainer: StyledComponent<"div", any, {}, never> = styled.di
     color: ${({theme}: any) => theme.palette.dark.text};
     padding: 1rem;
     overflow: auto;
+    box-shadow: ${({theme}: any) => theme.palette.boxShadow.prop};
 
     & > h3 {
         margin: 0 0.5rem;

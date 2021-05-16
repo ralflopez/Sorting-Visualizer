@@ -6,6 +6,7 @@ export const DarkerContainer: StyledComponent<"div", any, {}, never> = styled.di
     border-radius: 1rem;
     background-color: ${({theme}: any) => theme.palette.dark['100']};
     padding: 1.5rem;
+    box-shadow: ${({theme}: any) => theme.palette.boxShadow.prop}
 `
 
 export const TextArea: StyledComponent<"div", any, {}, never> = styled.div`

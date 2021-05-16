@@ -8,9 +8,8 @@ export const Bar: StyledComponent<"div", any, {}, never> = styled.div`
     width: 100%;
     height: 59px;
     padding: 5px 0;
-    background-color: ${(props: any) => props.theme.palette.light};
-    color: ${(props: any) => props.theme.palette.dark};
-    background: #FFFEFE;
+    background-color: ${(props: any) => props.theme.palette.dark.color};
+    color: ${(props: any) => props.theme.palette.dark.text};
     box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.1);
     display: inline-block;
     & > div {

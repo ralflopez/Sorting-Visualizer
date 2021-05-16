@@ -25,6 +25,7 @@ export const DropdownButton: StyledComponent<"div", any, TColor, never> = styled
     cursor: pointer;
     transition: all 300ms ease-out;
     position: relative;
+    box-shadow: ${({theme}: any) => theme.palette.boxShadow.prop};
     &:hover {
         opacity: 0.85
     }
@@ -46,6 +47,7 @@ export const DropdownSelection: StyledComponent<"div", any, TSelection, never> =
     border-radius: ${({theme}: any) => theme.sizing.rounded.sm};
     padding: 0.5rem;
     text-align: center;
+    box-shadow: ${({theme}: any) => theme.palette.boxShadow.prop};
 `
 
 export const DropdownItem: StyledComponent<"div", any, {}, never> = styled.div`

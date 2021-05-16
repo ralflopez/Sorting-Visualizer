@@ -21,6 +21,7 @@ export const Input: StyledComponent<"input", any, {}, never> = styled.input<{typ
 
 export const Flex: StyledComponent<"form", any, {}, never> = styled.form`
     display: flex;
+    box-shadow: ${({theme}: any) => theme.palette.boxShadow.prop}
 `
 
 export const Button: StyledComponent<"button", any, {}, never> = styled.button`

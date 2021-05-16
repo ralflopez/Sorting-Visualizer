@@ -16,7 +16,7 @@ const RepeatControl = () => {
         <Controls
             onClick={handleResetAction}
         >
-            <ArrowCounterclockwise color="#272727" size={30} />
+            <ArrowCounterclockwise color="#FFFFFF" size={30} />
         </Controls>
     )
 }
