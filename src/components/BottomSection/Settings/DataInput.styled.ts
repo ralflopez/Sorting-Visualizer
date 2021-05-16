@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
-export const Input = styled.input<{type?: string}>`
+export const Input: StyledComponent<"input", any, {}, never> = styled.input<{type?: string}>`
     background-color: ${({theme}: any) => theme.palette.dark['100']};
     color: ${({theme}: any) => theme.palette.dark.text};
     border: 0;
@@ -19,11 +19,11 @@ export const Input = styled.input<{type?: string}>`
     }
 `
 
-export const Flex = styled.div`
+export const Flex: StyledComponent<"div", any, {}, never> = styled.div`
     display: flex;
 `
 
-export const Button = styled.button`
+export const Button: StyledComponent<"button", any, {}, never> = styled.button`
     padding: 0.7rem 0.8rem;
     border-radius: 0.6rem;
     border: 0;

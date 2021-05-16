@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled, { StyledComponent } from "styled-components"
 
-export const Controls = styled.div`
+export const Controls: StyledComponent<"div", any, {}, never> = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

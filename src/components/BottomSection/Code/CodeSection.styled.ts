@@ -1,7 +1,6 @@
-import styled from 'styled-components'
-import theme from '../../../theme'
+import styled, { StyledComponent } from 'styled-components'
 
-export const DarkerContainer = styled.div`
+export const DarkerContainer: StyledComponent<"div", any, {}, never> = styled.div`
     height: 100%;
     width: 100%;
     border-radius: 1rem;
@@ -9,7 +8,7 @@ export const DarkerContainer = styled.div`
     padding: 1.5rem;
 `
 
-export const TextArea = styled.div`
+export const TextArea: StyledComponent<"div", any, {}, never> = styled.div`
     background-color: ${({theme}: any) => theme.palette.dark['100']};
     color: ${({theme}: any) => theme.palette.dark.text};
     width: 100%;
@@ -29,7 +28,7 @@ export const TextArea = styled.div`
     }
 `
 
-export const Highlighted = styled.p`
+export const Highlighted: StyledComponent<"p", any, {}, never> = styled.p`
     background-color: ${({theme}: any) => theme.palette.primary.color};
     transition: all 250ms ease-out;
 `

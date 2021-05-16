@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useSortStore } from '../../../mobx/Context'
 import { Button, Flex, Input } from './DataInput.styled'
 
-
 const DataInput = () => {
     const [value, setValue] = useState<string>('')
     const store = useSortStore()

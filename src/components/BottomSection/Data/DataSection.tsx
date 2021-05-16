@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { X } from 'react-bootstrap-icons'
 import { DataS, DarkerContainer, DataCard } from './DataSection.styled'
 import { useSortStore } from '../../../mobx/Context'

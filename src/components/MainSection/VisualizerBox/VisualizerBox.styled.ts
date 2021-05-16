@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
-export const Box = styled.div`
+export const Box: StyledComponent<"div", any, {}, never> = styled.div`
     width: 100%;
     height: 100%;
     display: flex;

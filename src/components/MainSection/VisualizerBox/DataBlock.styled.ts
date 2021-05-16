@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
 interface TBlock {
     color: string
     height: number
 }
 
-export const Block = styled.div<TBlock>`
+export const Block: StyledComponent<"div", any, TBlock, never> = styled.div<TBlock>`
     width: 40px;
     height: ${({height}: any) =>  {
         const full = `${height + '%'} - 1rem`

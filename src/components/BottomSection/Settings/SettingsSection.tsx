@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite'
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { useSortStore } from '../../../mobx/Context'
 import { SortStore } from '../../../mobx/Store'
 import Dropdown from '../../General/Dropdown'

@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
-export const Section = styled.div`
+export const Section: StyledComponent<"div", any, {}, never> = styled.div`
     background-color: ${({theme}: any) => theme.palette.dark.color};
     color: ${({theme}: any) => theme.palette.dark.text};
     width: 100%;
@@ -9,7 +9,7 @@ export const Section = styled.div`
     overflow: auto;
 `
 
-export const Layout = styled.div`
+export const Layout: StyledComponent<"div", any, {}, never> = styled.div`
     display: flex;
     height: 100%;
     box-sizing: border-box;

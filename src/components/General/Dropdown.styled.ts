@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
 interface TColor {
     color?: string
@@ -9,12 +9,12 @@ interface TSelection {
     selectionPosition: string
 }
 
-export const DropdownParent = styled.div`
+export const DropdownParent: StyledComponent<"div", any, {}, never> = styled.div`
     display: inline-block;
     position: relative;
 `
 
-export const DropdownButton = styled.div<TColor>`
+export const DropdownButton: StyledComponent<"div", any, TColor, never> = styled.div<TColor>`
     background-color: ${(props: any) => props.color ? (props.theme.palette[props.color].color) : props.theme.palette.primary.color};
     color: ${(props: any) => props.color ? (props.theme.palette[props.color].text) : props.theme.palette.primary.text};
     padding: ${({theme}: any) => theme.sizing.padding.button};
@@ -35,7 +35,7 @@ export const DropdownButton = styled.div<TColor>`
     }
 `
 
-export const DropdownSelection = styled.div<TSelection>`
+export const DropdownSelection: StyledComponent<"div", any, TSelection, never> = styled.div<TSelection>`
     background-color: ${(props: any) => props.color ? (props.theme.palette[props.color].color) : props.theme.palette.primary.color};
     color: ${(props: any) => props.color ? (props.theme.palette[props.color].text) : props.theme.palette.primary.text};
     position: absolute;
@@ -48,7 +48,7 @@ export const DropdownSelection = styled.div<TSelection>`
     text-align: center;
 `
 
-export const DropdownItem = styled.div`
+export const DropdownItem: StyledComponent<"div", any, {}, never> = styled.div`
     padding: 0.4rem;
     border-radius: ${({theme}: any) => theme.sizing.rounded.sm};
     cursor: pointer;

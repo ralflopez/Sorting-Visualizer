@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { useSortStore } from '../../../mobx/Context'
 import { SortStore } from '../../../mobx/Store'
 import { DarkerContainer, Highlighted, TextArea } from './CodeSection.styled'

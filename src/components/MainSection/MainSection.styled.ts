@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
-export const Main = styled.div`
+export const Main: StyledComponent<"div", any, {}, never> = styled.div`
     flex: 1;
     max-height: 50%;
     overflow: auto;

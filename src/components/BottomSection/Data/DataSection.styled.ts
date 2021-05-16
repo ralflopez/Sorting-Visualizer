@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled, { StyledComponent } from 'styled-components'
 
 export const DataS = styled.div`
     overflow: hidden;
 `
 
-export const DarkerContainer = styled.div`
+export const DarkerContainer: StyledComponent<"div", any, {}, never> = styled.div`
     height: 100%;
     max-height: 100%;
     width: 100%;
@@ -22,21 +22,21 @@ export const DarkerContainer = styled.div`
     }
 `
 
-export const DataCard = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0.1rem 0.8rem;
-background-color: ${({theme}: any) => theme.palette.dark.color};
-color: ${({theme}: any) => theme.palette.dark.text};
-border-radius: ${({theme}: any) => theme.sizing.rounded.sm};
-margin-bottom: 0.8rem;
-& > svg {
-    border-radius: 50%;
-    transition: ${({theme}: any) => theme.transition.basic};
-    cursor: pointer;
-    &:hover {
-        background-color: ${({theme}: any) => theme.palette.secondary.color};
+export const DataCard: StyledComponent<"div", any, {}, never> = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1rem 0.8rem;
+    background-color: ${({theme}: any) => theme.palette.dark.color};
+    color: ${({theme}: any) => theme.palette.dark.text};
+    border-radius: ${({theme}: any) => theme.sizing.rounded.sm};
+    margin-bottom: 0.8rem;
+    & > svg {
+        border-radius: 50%;
+        transition: ${({theme}: any) => theme.transition.basic};
+        cursor: pointer;
+        &:hover {
+            background-color: ${({theme}: any) => theme.palette.secondary.color};
+        }
     }
-}
 `

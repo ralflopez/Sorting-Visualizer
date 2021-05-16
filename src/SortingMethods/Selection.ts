@@ -1,5 +1,4 @@
-import React from 'react'
-import { SortStore, TDataBlock } from '../mobx/Store'
+import { SortStore } from '../mobx/Store'
 import { sleep } from './uiSync'
 
 async function selectionSort(store: SortStore) {
