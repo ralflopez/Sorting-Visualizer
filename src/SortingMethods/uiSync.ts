@@ -6,5 +6,5 @@ export const sleep = (delay: number) => {
 
 export const setBreakpoint = async (store: SortStore, line: number) => {
     store.setActiveLines(line, line)
-    await sleep(store.speed)
+    if(store.speed > 0) await sleep(store.speed)
 }
